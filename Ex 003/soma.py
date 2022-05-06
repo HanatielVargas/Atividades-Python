@@ -1,8 +1,14 @@
 while True:
     try:
-        n1, n2 = int(input('Digite um número: ').strip()), int(input('Digite outro número: ').strip())
+        n1 = int(input('Digite um número: ').strip())
     except:
         print('\033[1;31mOcorreu um erro!\033[m')
     else:
-        print(f'A soma de {n1} e {n2} é igual a {n1 + n2}.')
-        break
+        while True:
+            try:
+                n2 = int(input('Digite outro número: ').strip())
+            except:
+                print('\033[1;31mOcorreu um erro!\033[m')
+            else:
+                print(f'A soma de {n1} e {n2} é igual a {n1 + n2}.')
+                quit()
