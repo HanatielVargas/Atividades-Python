@@ -1,0 +1,1 @@
+print('Seu nome tem Silva?', True if 'Silva' in input('Digite seu nome completo: ').strip().title() else False)
