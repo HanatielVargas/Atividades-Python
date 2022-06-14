@@ -1,8 +1,23 @@
-from datetime import date
-ano = date.today().year
+try:
+    from datetime import date
+    ano = date.today().year
+except:
+    print('\033[1;31mOcorreu um erro!\033[m')
+    ano = int(input('Digite o ano atual: '))
 
 idade_alistar = 18
-nasc = int(input('Ano de Nascimento: '))
+
+while True:
+    try:
+        nasc = int(input('Ano de Nascimento: '))
+    except Exception:
+        print('\033[1;31mOcorreu um erro\033[m')
+    except KeyboardInterrupt:
+        print('Usuário não quer continuar')
+        quit()
+    else:
+        break
+
 print(f'Quem nasceu em {nasc} tem {ano-nasc} anos em {ano}')
 
 if nasc + idade_alistar < ano:
