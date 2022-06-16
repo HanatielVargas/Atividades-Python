@@ -1,10 +1,29 @@
-valor = float(input('Valor das compras: R$'))
-pagam = int(input('''FORMAS DE PAGAMENTOS
+while True:
+    try:
+        valor = float(input('Valor das compras: R$'))
+    except Exception:
+        print('\033[1;31mOcorreu um erro!\033[m')
+    except KeyboardInterrupt:
+        print('Usuário não quer continuar!')
+        quit()
+    else:
+        break
+
+while True:
+    try:
+        pagam = int(input('''FORMAS DE PAGAMENTOS
 [1] à vista dinheiro/cheque
 [2] à vista cartão
 [3] 2x no cartão
 [4] 3x ou mais no cartão
 Qual é a opção? '''))
+    except Exception:
+        print('\033[1;31mOcorreu um erro!\033[m')
+    except KeyboardInterrupt:
+        print('Usuário não quer continuar!')
+        quit()
+    else:
+        break
 
 match pagam:
     case 1: #10% de desconto
