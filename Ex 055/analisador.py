@@ -10,9 +10,46 @@ mul20 = 0
 for c in range(4):
     pessoa = f'{c+1}ª Pessoa'
     print(f'{pessoa:-^20}')
-    nome = str(input('Nome: ')).capitalize().strip()
-    idade = int(input('Idade: '))
-    sexo = str(input('Sexo [M/F]: '))[0].upper()
+    while True:
+        try:
+            nome = str(input('Nome: ')).capitalize().strip()
+            if nome.isalnum() and not nome.isalpha() or nome == '':
+                raise TypeError
+        except TypeError:
+            print('\033[1;31mAlgo deu errado.\033[m Escreva certo!')
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            quit()
+        except:
+            print('\033[1;31mAlgo deu errado.\033[m Escreva certo!')
+        else:
+            break
+    
+    while True:
+        try:
+            idade = int(input('Idade: '))
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            quit()
+        except:
+            print('\033[1;31mAlgo deu errado.\033[m Escreva certo!')
+        else:
+            break
+    
+    while True:
+        try:
+            sexo = str(input('Sexo [M/F]: '))[0].upper()
+            if sexo.isalnum() and not sexo.isalpha() or sexo == '' or not sexo in 'mfFM':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            quit()
+        except TypeError:
+            print('\033[1;31mAlgo deu errado.\033[m Escreva certo!')
+        except:
+            print('\033[1;31mAlgo deu errado.\033[m Escreva certo!')
+        else:
+            break
     
     dadopess = {'Nome': nome, 'Idade': idade, 'Sexo': sexo}
 
