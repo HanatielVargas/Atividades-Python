@@ -5,7 +5,16 @@ Selecionar o maio e o menor número de uma sequência
 pessoas = list()
 
 for c in range(5):
-    peso = float(input(f'Peso da {c+1}ª Pessoa: '))
+    while True:
+        try:
+            peso = float(input(f'Peso da {c+1}ª Pessoa: '))
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mOcorreu um erro.\033[m Escreva certo!')
+        else:
+            break
     pessoas.append(peso)
 
 pessoas.sort()
