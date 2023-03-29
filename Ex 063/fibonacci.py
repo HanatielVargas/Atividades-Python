@@ -7,7 +7,16 @@ onda = '~'*40
 
 print(linha + '\n\t Sequência de Fibonacci\n' + linha)
 
-ter = int(input(' Quantos termos você quer mostrar? '))
+while True:
+    try:
+        ter = int(input(' Quantos termos você quer mostrar? '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar.\nEncerrando...')
+        exit()
+    except:
+        print('\033[1;31m Ocorreu um erro. Tente algo válido.\033[m')
+    else:
+        break
 
 print(onda)
 
