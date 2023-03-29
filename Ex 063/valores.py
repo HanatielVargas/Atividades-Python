@@ -6,7 +6,16 @@ soma = 0
 qtde = 0
 
 while True:
-    num = int(input('Digite um número [999 para parar]: '))
+    while True:
+        try:
+            num = int(input('Digite um número [999 para parar]: '))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mDigite um valor válido!\033[m')
+        else:
+            break
     if num == 999:
         break
     soma += num
