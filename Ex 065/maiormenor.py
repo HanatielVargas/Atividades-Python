@@ -6,12 +6,33 @@ nums = list()
 soma = 0
 
 while True:
-    num = float(input('Digite um número: '))
+    while True:
+        try:
+            num = float(input('Digite um número: '))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mOcorreu um erro. Digite certo.\033[m')
+        else:
+            break
 
     soma += num
     nums.append(num)
 
-    cont = str(input('Quer continuar? [s/n] '))
+    while True:
+        try:
+            cont = str(input('Quer continuar? [s/n] ')).strip()[0]
+            if cont not in 'sn' or cont == '':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mOcorreu um erro. Digite certo.\033[m')
+        else:
+            break
+
     if cont == 'n':
         break
 
