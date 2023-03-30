@@ -5,7 +5,17 @@ tabuada versâo 3
 
 while True:
     print('-'*40)
-    num = int(input('Quer ver a tabuada de qual valor? '))
+    while True:
+        try:
+            num = int(input('Quer ver a tabuada de qual valor? '))
+        except KeyboardInterrupt:
+            print('Usuário não quer mais continuar')
+            quit()
+        except:
+            print('\033[1;31mOcorreu um Erro\033[m')
+        else:
+            break
+
     print('-'*40)
 
     if num < 0:
