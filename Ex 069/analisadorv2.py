@@ -11,8 +11,29 @@ while True:
     print(f'{CAD:^30}')
     print('-'*30)
 
-    idade = int(input('Idade: '))
-    sexo = str(input('Sexo: [F/M] ')).upper().strip()[0]
+    while True:
+        try:
+            idade = int(input('Idade: '))
+        except KeyboardInterrupt:
+            print('Usuário não quer mais continuar')
+            quit()
+        except:
+            print('\033[1;31mOcorreu um Erro\033[m')
+        else:
+            break
+
+    while True:
+        try:
+            sexo = str(input('Sexo: [F/M] ')).strip().upper()[0]
+            if sexo not in 'FM':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('Usuário não quer mais continuar')
+            quit()
+        except:
+            print('\033[1;31mOcorreu um Erro\033[m')
+        else:
+            break
 
     if sexo == 'M':
         hom += 1
@@ -20,12 +41,23 @@ while True:
     if sexo == 'F' and idade < 20:
         mul += 1
     
-    if idade > 18:
+    if idade >= 18:
         m18 += 1
 
     print('-'*30)
 
-    cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+    while True:
+        try:
+            cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+            if cont not in 'SN':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('Usuário não quer mais continuar')
+            quit()
+        except:
+            print('\033[1;31mOcorreu um Erro\033[m')
+        else:
+            break
 
     if cont == 'N':
         break
