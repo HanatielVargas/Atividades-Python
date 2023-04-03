@@ -13,21 +13,50 @@ print(f'{LOJA:^30}')
 print('-'*30)
 
 while True:
-    nome = str(input('Nome do Produto: ')).strip()
-    preco = float(input('Preço: R$'))
+    while True:
+        try:
+            nome = str(input('Nome do Produto: ')).strip()
+            if nome == '' or nome.isnumeric():
+                raise SyntaxError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar. \nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mVocê digitou algo errado!\033[m')
+        else:
+            break
+    while True:
+        try:
+            preco = float(input('Preço: R$'))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar. \nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mVocê digitou algo errado!\033[m')
+        else:
+            break
 
+    tot += preco
     if barato == [] or preco < barato[1]:
         barato.clear()
         barato.append(nome)
         barato.append(preco)
-
     if preco > 1000:
         qtdemil += 1
+
+    while True:
+        try:
+            cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+            if cont not in 'SN':
+                raise SyntaxError
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar. \nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mVocê digitou algo errado!\033[m')
+        else:
+            break
     
-    tot += preco
-
-    cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
-
     if cont == 'N':
         break
 
