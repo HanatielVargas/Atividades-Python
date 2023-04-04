@@ -6,10 +6,19 @@ print('-'*40)
 print(f'{"BANCO HS":^40}')
 print('-'*40)
 
-valor = int(input('Qual valor você quer sacar? R$'))
-resto = valor
+while True:
+        try:
+            valor = int(input('Qual valor você quer sacar? R$'))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar. \nEncerrando...')
+            exit()
+        except:
+            print('\033[1;31mVocê digitou algo errado!\033[m')
+        else:
+            break
 
-ced = 100
+resto = valor
+ced = 200
 qtde = 0
 
 while True:
@@ -21,7 +30,9 @@ while True:
             print(f'Total de {qtde} cédulas de R$ {ced}.')
         elif ced == 1:
             print(f'Total de {qtde} moedas de R$ {ced}.')
-        if ced == 100:
+        if ced == 200:
+            ced = 100
+        elif ced == 100:
             ced = 50
         elif ced == 50:
             ced = 20
@@ -36,7 +47,6 @@ while True:
         qtde = 0
         if resto == 0:
             break
-
 
 print('-'*40)
 print('Volte sempre ao BANCO HS. Tenha um bom dia!\n')
