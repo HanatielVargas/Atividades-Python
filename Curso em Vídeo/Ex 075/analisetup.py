@@ -2,51 +2,18 @@
 Analisador de tuplas
 '''
 
-while True:
-    try:
-        a = int(input('Digite um número: '))
-    except KeyboardInterrupt:
-        print('\nUsuário não quer continuar!\nEncerrando...\n')
-        exit()
-    except:
-        print('\033[1;31mOcorreu um erro. Digite certo!\033[m')
-    else:
+def input_number():
+    while True:
+        try:
+            return int(input('Digite um número: '))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            exit()
+        except:
+            print('\033[1;31mOcorreu um erro. Digite um número inteiro!\033[m')
         break
 
-while True:
-    try:
-        b = int(input('Digite outro número: '))
-    except KeyboardInterrupt:
-        print('\nUsuário não quer continuar!\nEncerrando...\n')
-        exit()
-    except:
-        print('\033[1;31mOcorreu um erro. Digite certo!\033[m')
-    else:
-        break
-
-while True:
-    try:
-        c = int(input('Digite outro número: '))
-    except KeyboardInterrupt:
-        print('\nUsuário não quer continuar!\nEncerrando...\n')
-        exit()
-    except:
-        print('\033[1;31mOcorreu um erro. Digite certo!\033[m')
-    else:
-        break
-
-while True:
-    try:
-        d = int(input('Digite outro número: '))
-    except KeyboardInterrupt:
-        print('\nUsuário não quer continuar!\nEncerrando...\n')
-        exit()
-    except:
-        print('\033[1;31mOcorreu um erro. Digite certo!\033[m')
-    else:
-        break
-
-tup = (a, b, c, d)
+tup = (input_number(), input_number(), input_number(), input_number())
 
 par = 0 
 
