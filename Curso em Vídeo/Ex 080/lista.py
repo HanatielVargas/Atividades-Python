@@ -5,7 +5,16 @@ Lista ordenada sem repetições
 lista = list()
 
 for c in range(5):
-    num = int(input('Digite um valor: '))
+    while True:
+        try:
+            num = int(input('Digite um valor: '))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            exit()
+        except:
+            print('\033[1;31mOcorreu um erro! Escreva certo.\033[m')
+        else:
+            break
 
     if len(lista) == 0 or lista[-1] <= num:
         lista.append(num)
@@ -20,4 +29,4 @@ for c in range(5):
                 print(f'Valor adicionado na posição {c+1}...')
                 break
 
-print(f'Os valores digitados em ordem foram: {lista}')
+print(f'Os valores digitados em ordem foram: {lista}\n')
