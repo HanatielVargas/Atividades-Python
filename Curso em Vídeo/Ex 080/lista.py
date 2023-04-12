@@ -4,7 +4,7 @@ Lista ordenada sem repetições
 
 lista = list()
 
-for c in range(5):
+while len(lista) != 5:
     while True:
         try:
             num = int(input('Digite um valor: '))
@@ -16,7 +16,9 @@ for c in range(5):
         else:
             break
 
-    if len(lista) == 0 or lista[-1] <= num:
+    if num in lista:
+        print('Número já está na lista')
+    elif len(lista) == 0 or lista[-1] <= num:
         lista.append(num)
         print('Valor adicionado ao final da lista...')
     elif lista[0] >= num:
