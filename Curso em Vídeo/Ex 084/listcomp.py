@@ -5,8 +5,28 @@ maior = 0
 menor = 0
 
 while True:
-    nome = str(input('NOME: ')).strip().title()
-    peso = float(input('PESO: '))
+    while True:
+        try:
+            nome = str(input('NOME: ')).strip().title()
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar! Encerrando...')
+            quit()
+        except:
+            print('Você digitou algo errado, por favor corrija!')
+        else:
+            break
+
+    while True:
+        try:
+            peso = float(input('PESO: '))
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar! Encerrando...')
+            quit()
+        except:
+            print('Você digitou algo errado, por favor corrija!')
+        else:
+            break
+    
     lista.append([nome, peso])
 
     if peso > maior or maior == 0:
@@ -14,12 +34,22 @@ while True:
     if peso < menor or menor == 0:
         menor = peso
 
-    cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+    while True:
+        try:
+            cont = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+            if cont not in 'SN':
+                raise TypeError
+        except KeyboardInterrupt:
+            break
+        except:
+            print('Você digitou algo errado, por favor corrija!')
+        else:
+            break
 
-    if cont == 'N':
+    if cont == 'N': # diz que ta errado mas não dá erro
         break
 
-print('-='*40)
+print('-='*30)
 print(f'Ao todo, você cadastrou {len(lista)} pessoas.')
 print(f'O maior peso foi de {maior}Kg. Peso de ', end='')
 for c in lista:
