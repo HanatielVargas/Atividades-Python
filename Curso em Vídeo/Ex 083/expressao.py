@@ -1,9 +1,20 @@
 # Criando um validador de expressões aritméticas, analisando se a ordem e a quantidade dos parenteses está correta.
 
-exp = str(input('Digite sua expressão: ')).strip()
+while True:
+    try:
+        exp = str(input('Digite sua expressão: ')).strip()
+        if exp == '':
+            raise TypeError
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...')
+        quit()
+    except:
+        print('Você digitou algo errado. Por favor escreva certo')
+    else:
+        break
 
 aberto = 0
-certo = True
+certo = 'correta!'
 
 for c in exp:
     if c == '(':
@@ -11,9 +22,9 @@ for c in exp:
     if c == ')':
         aberto -= 1
     if aberto == -1:
-        certo = False
+        certo = 'errada!'
     
-if certo and aberto != 0:
-    certo = False
+if certo == 'correta!' and aberto != 0:
+    certo = 'errada!'
 
-print(exp, certo, aberto)
+print(f'Sua expressão está {certo}\n')
