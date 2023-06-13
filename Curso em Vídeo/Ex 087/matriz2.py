@@ -23,10 +23,10 @@ for l in range(3):
             pares += num
         if c == 2:
             coluna3 += num
-        if l == 1 and maiorl2 == int or l == 1 and maiorl2 < num:
+        if l == 1 and maiorl2 == int or l == 1 and maiorl2 < num: # type: ignore
             maiorl2 = num
     if l != 2:
-        matriz += '\n'    
+        matriz += '\n'
 
 print('=-'*25)
 print(f'{matriz}')
