@@ -8,7 +8,16 @@ maiorl2 = int
 
 for l in range(3):
     for c in range(3):
-        num = int(input(f"Digite um valor para a posição [{l}][{c}]: "))
+        while True:
+            try:
+                num = int(input(f"Digite um valor para a posição [{l}][{c}]: "))
+            except KeyboardInterrupt:
+                print('\nUsuário não quer continuar! Encerrando...\n')
+                exit()
+            except:
+                print('Você digitou algo errado!')
+            else:
+                break
         matriz += f'[{num:^5}]'
         if num % 2 == 0:
             pares += num
