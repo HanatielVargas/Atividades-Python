@@ -13,7 +13,16 @@ print('-'*50)
 print(f'{"JOGA NA MEGA SENA":^50}')
 print('-'*50)
 
-jogos = int(input('Quantos jogos você quer que eu sorteie? '))
+while True:
+    try:
+        jogos = int(input('Quantos jogos você quer que eu sorteie? '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar! Encerrando...\n')
+        exit()
+    except:
+        print('Você digitou algo errado.')
+    else:
+        break
 frase = ('  SORTEANDO ' + str(jogos) + ' JOGOS  ')
 print(f'{frase:-^50}')
 
