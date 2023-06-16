@@ -6,13 +6,46 @@ gols = list()
 jogador = dict()
 time = list()
 
-
 while True:
-    jogador['Nome'] = str(input('Nome do jogador: '))
-    jogador['Partidas'] = int(input(f'Quantas partidas {jogador["Nome"]} jogou? '))
+    while True:
+        try:
+            jogador['Nome'] = str(input('Nome do jogador: ')).strip().title()
+            if jogador['Nome'] == '':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            quit()
+        except:
+            print('ERRO! Digite algum nome.')
+        else:
+            break
+
+    while True:
+        try:
+            jogador['Partidas'] = int(input(f'Quantas partidas {jogador["Nome"]} jogou? '))
+            if jogador['Partidas'] < 0:
+                raise TypeError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            quit()
+        except:
+            print('ERRO! Digite algum número válido.')
+        else:
+            break
 
     for c in range(jogador['Partidas']):
-        gol = int(input(f'\tQuantos gols na partida {c+1}? '))
+        while True:
+            try:
+                gol = int(input(f'\tQuantos gols na partida {c+1}? '))
+                if gol < 0:
+                    raise TypeError
+            except KeyboardInterrupt:
+                print('\nUsuário não quer continuar!\nEncerrando...\n')
+                quit()
+            except:
+                print('ERRO! Digite algum número válido.')
+            else:
+                break
         gols.append(gol)
 
     jogador['Gols'] = gols.copy()
@@ -21,7 +54,18 @@ while True:
     jogador.clear()
     gols.clear()
 
-    cont = str(input('Continuar? [S/N] ')).strip().upper()[0]
+    while True:
+        try:
+            cont = str(input('Continuar? [S/N] ')).strip().upper()[0]
+            if cont not in 'SN':
+                raise TypeError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            quit()
+        except:
+            print('ERRO! Digite somente S ou N.')
+        else:
+            break
     if cont == 'N':
         break
 
@@ -33,7 +77,19 @@ for c, i in enumerate(time):
 print('-'*40)
 
 while True:
-    cod = int(input('Ver dados de qual jogador? (999 para) '))
+    while True:
+        try:
+            cod = int(input('Ver dados de qual jogador? (999 para) '))
+            if cod != 999 and (cod < 0 or cod > len(time)-1): 
+                raise TypeError
+        except KeyboardInterrupt:
+            print('\nUsuário não quer continuar!\nEncerrando...\n')
+            quit()
+        except:
+            print('ERRO! Digite algum nome.')
+            print('-'*40)
+        else:
+            break
 
     if cod == 999:
         break
@@ -43,4 +99,6 @@ while True:
         print(f'\tNo jogo {c+1} fez {i} Gols')
 
     print('-'*40)
-    
+
+print('-'*40)
+print('<<< VOLTE SEMPRE >>>\n')
