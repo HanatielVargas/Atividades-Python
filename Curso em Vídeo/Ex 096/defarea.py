@@ -3,8 +3,34 @@ Criando uma Função que calcula área
 '''
 
 def calcArea(larg, comp):
-    print(f'A área do terreno {larg}mx{comp}m é de {larg*comp}m²\n')
+    print(f'\nA área do terreno {larg}m x {comp}m é de {larg*comp:.2f}m²\n')
 
 print('-'*20 + '\nCONTROLE DE TERRENOS\n'+ '-'*20)
 
-calcArea(larg=float(input('LARGURA (m): ')), comp=float(input('COMPRIMENTO (m): ')))
+while True:
+    try:
+        largura = float(input('LARGURA (m): '))
+        if largura < 0:
+            raise ZeroDivisionError
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...\n')
+        quit()
+    except:
+        print('Você digitou algo errado!')
+    else:
+        break
+
+while True:
+    try:
+        comprimento = float(input('COMPRIMENTO (m): '))
+        if comprimento < 0:
+            raise ZeroDivisionError
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...\n')
+        quit()
+    except:
+        print('Você digitou algo errado!')
+    else:
+        break
+
+calcArea(larg=largura, comp=comprimento)
