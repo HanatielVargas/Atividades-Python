@@ -14,7 +14,7 @@ def conta(ini=1, fim=10, pas=1):
     atual = ini
     while True:
         print(atual, end=' ', flush=True)
-        sleep(0.7)
+        sleep(0.5)
         if ini > fim:
             atual -= pas
             if atual < fim:
@@ -33,4 +33,37 @@ conta(10, 0, 2)
 
 print('=-'*20)
 print('Agora é sua vez de personalizar a contagem!')
-conta(int(input('Início: ')), int(input('Final: ')), int(input('Passo: ')))
+
+while True:
+    try:
+        inicio = int(input('Início: '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...')
+        quit()
+    except:
+        print('Você digitou algo errado!')
+    else:
+        break
+while True:
+    try:
+        final =  int(input('Final: '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...')
+        quit()
+    except:
+        print('Você digitou algo errado!')
+    else:
+        break
+
+while True:
+    try:
+        passo = int(input('Passo: '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...')
+        quit()
+    except:
+        print('Você digitou algo errado!')
+    else:
+        break
+
+conta(inicio , final, passo)
