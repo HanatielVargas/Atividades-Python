@@ -8,8 +8,10 @@ def maior(* num):
     for c in num:
         print(c, end=' ')
     print(f'Foram informados {len(num)} números ao todo')
-    print('O maior número informado foi', end=' ')
-    print(f'{max(num)}.') if len(num) != 0 else print('0.')
+    if len(num) != 0:
+        print(f'O maior número informado foi {max(num)}.')
+    else:
+        print(f'Não foi informado número para definir o maior.')
 
 maior(2,9,4,5,7,1)
 maior(4,7,0)
