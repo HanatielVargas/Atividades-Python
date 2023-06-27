@@ -28,4 +28,4 @@ while True:
 
 print(f'\nA metade de R${preco:.2f} é igual a R${moeda.metade(preco):.2f}')
 print(f'O dorbo de R${preco:.2f} é igual a R${moeda.dobro(preco):.2f}')
-print(f'Aumentando {aumento:.2f}%, temos R${moeda.percentagem(preco, aumento):.2f}\n')
+print(f'Aumentando {aumento:.2f}%, temos R${moeda.aumentar(preco, aumento):.2f}\n')
