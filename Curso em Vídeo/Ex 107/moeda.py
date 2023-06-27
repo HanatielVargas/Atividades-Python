@@ -11,5 +11,5 @@ def dobro(num):
     return (num*2)
 
 
-def percentagem(num, percentagem=10):
+def percentagem(num, percentagem):
     return (num*(percentagem/100+1))
