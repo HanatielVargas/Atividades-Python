@@ -1,8 +1,7 @@
 '''
 Fazendo umas funções básicas de matemática usando modulos
 '''
-
-import moeda
+from moeda import *
 
 while True:
     try:
@@ -26,6 +25,7 @@ while True:
     else:
         break
 
-print(f'\nA metade de R${preco:.2f} é igual a R${moeda.metade(preco):.2f}')
-print(f'O dorbo de R${preco:.2f} é igual a R${moeda.dobro(preco):.2f}')
-print(f'Aumentando {aumento:.2f}%, temos R${moeda.aumentar(preco, aumento):.2f}\n')
+print(f'\nA metade de R${preco:.2f} é igual a R${metade(preco):.2f}')
+print(f'O dorbo de R${preco:.2f} é igual a R${dobro(preco):.2f}')
+print(f'Aumentando {aumento:.2f}%, temos R${aumentar(preco, aumento):.2f}')
+print(f'Diminuindo {aumento:.2f}%, temos R${diminuir(preco, aumento):.2f}\n')
