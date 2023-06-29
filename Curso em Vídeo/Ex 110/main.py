@@ -16,4 +16,27 @@ while True:
         break
 
 
-resumo(preco, 20, 12)
+while True:
+    try:
+        aum = float(input('Digite fator de aumento: % '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...\n')
+        quit()
+    except:
+        print('Você digitou algo errado! Por favor corrija.')
+    else:
+        break
+
+
+while True:
+    try:
+        dim = float(input('Digite fator de redução: % '))
+    except KeyboardInterrupt:
+        print('\nUsuário não quer continuar!\nEncerrando...\n')
+        quit()
+    except:
+        print('Você digitou algo errado! Por favor corrija.')
+    else:
+        break
+
+resumo(preco, aum, dim)

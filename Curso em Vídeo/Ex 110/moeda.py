@@ -36,13 +36,16 @@ def brl(float, moeda='R$'):
 
 
 def resumo(num, aum=0.0, dim=0.0):
+    straum = f'{brl(aum, "")}% de Aumento:'
+    strdim = f'{brl(dim, "")}% de Redução:'
+
     print('-'*30)
     print(f'{"RESUMO DO VALOR":^30}')
     print('-'*30)
     print(f'{"Preço Analisado:":<20}{brl(num):<10}')
     print(f'{"Dobro do Preço: ":<20}{dobro(num):<10}')
     print(f'{"Metade do Preço:":<20}{metade(num):<10}')
-    print(f'{f"{aum}% de Aumento:":<20}{aumentar(num, aum):<10}')
-    print(f'{f"{dim}% de Redução:":<20}{diminuir(num, dim):<10}')
+    print(f'{straum:<20}{aumentar(num, aum):<10}')
+    print(f'{strdim:<20}{diminuir(num, dim):<10}')
     print('-'*30)
     print()
