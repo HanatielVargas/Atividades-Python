@@ -26,6 +26,6 @@ while True:
         break
 
 print(f'\nA metade de R${preco:.2f} é igual a R${metade(preco):.2f}')
-print(f'O dorbo de R${preco:.2f} é igual a R${dobro(preco):.2f}')
+print(f'O dobro de R${preco:.2f} é igual a R${dobro(preco):.2f}')
 print(f'Aumentando {aumento:.2f}%, temos R${aumentar(preco, aumento):.2f}')
 print(f'Diminuindo {aumento:.2f}%, temos R${diminuir(preco, aumento):.2f}\n')
