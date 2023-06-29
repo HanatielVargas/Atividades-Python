@@ -30,5 +30,5 @@ while True:
 
 print(f'\nA metade de {brl(preco)} é igual a {brl(metade(preco))}')
 print(f'O dobro de {brl(preco)} é igual a {brl(dobro(preco))}')
-print(f'Aumentando {aumento:.2f}%, temos R${brl(aumentar(preco, aumento))}')
-print(f'Diminuindo {aumento:.2f}%, temos R${brl(diminuir(preco, aumento))}\n')
+print(f'Aumentando {aumento:.2f}%, temos {brl(aumentar(preco, aumento))}')
+print(f'Diminuindo {aumento:.2f}%, temos {brl(diminuir(preco, aumento))}\n')
