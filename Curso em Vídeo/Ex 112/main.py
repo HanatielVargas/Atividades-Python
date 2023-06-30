@@ -6,4 +6,7 @@ from utilidadescev.dado import *
 
 
 preco = leiaDinheiro('Digite o preço: R$')
-resumo(preco, 10, 20)
+aum = leiaDinheiro('Digite fator de aumento: % ')
+dim = leiaDinheiro('Digite fator de redução: % ')
+
+resumo(preco, aum, dim)
