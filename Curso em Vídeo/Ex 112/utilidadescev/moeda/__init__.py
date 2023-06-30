@@ -6,9 +6,9 @@ Parte das funções
 def metade(num, moeda=True):
     num = strtofloat(num)
     if moeda:
-        return brl(num/2) # type: ignore
+        return brl(num/2)
     else:
-        return num/2 # type: ignore
+        return num/2
 
 
 def dobro(num, moeda=True):
@@ -41,13 +41,10 @@ def brl(float, moeda='R$'):
 
 def strtofloat(string):
     string = str(string)
-    new = ''
-    if '.' in string or '.,' not in string:
-        return float(string)
+    if ',' in string:
+        return float(string.replace(',', '.'))
     else:
-        pass
-
-    return new
+        return float(string)
 
 
 def resumo(num, aum=0.0, dim=0.0):
