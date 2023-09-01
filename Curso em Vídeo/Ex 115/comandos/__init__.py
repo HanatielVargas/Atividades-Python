@@ -20,7 +20,7 @@ def mensagem(msg):
 def cadastrados():
     dados = 0
     try:
-        with open('./Curso em Vídeo/Ex 115/dados/dados.txt') as arq:
+        with open('./Curso em Vídeo/Ex 115/dados/dados.txt', 'r') as arq:
             data = arq.readlines()
             dados = data
         dados = dados[0].split(';')
@@ -31,3 +31,11 @@ def cadastrados():
         print('\033[1;31mERRO! Não existe pessoa cadastrada.\033[m')
     except FileNotFoundError:
         print('\033[1;31mERRO! O arquivo foi apagado.\033[m')
+
+
+def cadastrar():
+    nome = str(input('Nome: '))
+    idade = int(input('Idade: '))
+    with open('./Curso em Vídeo/Ex 115/dados/dados.txt', 'a') as arq:
+        arq.write(f'{nome},{idade};')
+    print(f'Novo registro de {nome} adicionado.')

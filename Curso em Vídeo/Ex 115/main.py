@@ -29,6 +29,7 @@ while not sair:
             cadastrados()
         case 2:
             mensagem('FAZER CADASTRO')
+            cadastrar()
         case 3:
             mensagem('Saindo do sistema... Até logo!')
             sair = True
