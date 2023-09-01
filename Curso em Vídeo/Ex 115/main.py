@@ -12,7 +12,7 @@ while not sair:
     menu()
     while True:
         try:
-            opcao = int(input('Sua opção: '))
+            opcao = int(input())
             if opcao < 1 or opcao > 3:
                 raise IndexError
         except KeyboardInterrupt:
