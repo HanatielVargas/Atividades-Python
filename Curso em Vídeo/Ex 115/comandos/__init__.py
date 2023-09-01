@@ -34,8 +34,36 @@ def cadastrados():
 
 
 def cadastrar():
-    nome = str(input('Nome: '))
-    idade = int(input('Idade: '))
-    with open('./Curso em Vídeo/Ex 115/dados/dados.txt', 'a') as arq:
-        arq.write(f'{nome},{idade};')
-    print(f'Novo registro de {nome} adicionado.')
+    while True:
+        try:
+            nome = str(input('Nome: '))
+            if nome.isnumeric():
+                raise TypeError
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            quit()
+        except:
+            print('\033[1;31mERRO! Digite um valor válido.\033[m')
+        else:
+            break
+
+    while True:
+        try:
+            idade = int(input('Idade: '))
+        except KeyboardInterrupt:
+            print('Usuário não quer continuar!\nEncerrando...')
+            quit()
+        except:
+            print('\033[1;31mERRO! Digite um valor válido.\033[m')
+        else:
+            break
+
+    try:
+        with open('./Curso em Vídeo/Ex 115/dados/dados.txt', 'a') as arq:
+            arq.write(f'{nome},{idade};')
+    except FileNotFoundError:
+        print('\033[1;31mERRO! Arquivo não encontrado.\033[m')
+    except:
+        print('\033[1;31mERRO! Ocorreu um erro inesperado.\033[m')
+    else:
+        print(f'Novo registro de {nome} adicionado.')

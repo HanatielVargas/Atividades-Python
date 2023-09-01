@@ -6,9 +6,7 @@ from comandos import *
 from time import sleep
 
 
-sair = False
-
-while not sair:
+while True:
     menu()
     while True:
         try:
@@ -32,8 +30,6 @@ while not sair:
             cadastrar()
         case 3:
             mensagem('Saindo do sistema... Até logo!')
-            sair = True
-        case _:
-            pass
+            break
     
     sleep(1)
